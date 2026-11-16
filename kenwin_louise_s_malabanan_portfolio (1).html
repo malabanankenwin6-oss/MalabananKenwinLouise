@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenwin Louise S. Malabanan | Aspiring Front-End Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        darkBg: '#090d16',
+                        cardBg: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.25);
+        }
+        .glow-card:hover {
+            box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-nav {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Brand -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-lg group-hover:scale-105 transition-transform">
+                        KL
+                    </div>
+                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-indigo-400 transition-colors">
+                        Kenwin Louise
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">About</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Projects</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Skills</a>
+                    <a href="#resume" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Resume</a>
+                    <a href="#cover-letter" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Cover Letter</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-300 hover:text-indigo-400 transition-colors">Contact</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-500 transition shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+                        <span>Let's Talk</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white focus:outline-none transition">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-4 pb-6 space-y-3 transition-all">
+            <a href="#about" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">About</a>
+            <a href="#projects" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">Projects</a>
+            <a href="#skills" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">Skills</a>
+            <a href="#resume" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">Resume</a>
+            <a href="#cover-letter" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">Cover Letter</a>
+            <a href="#contact" class="block text-base font-medium text-slate-300 hover:text-indigo-400 py-1 mobile-link">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="w-full text-center block px-5 py-3 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-500 transition shadow-lg">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background decorative glow spheres -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Pill tag -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-xs sm:text-sm font-medium text-indigo-300 mb-8 shadow-inner animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                Available for Junior Frontend Roles & Internships
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+                Hi, I'm <span class="gradient-text">Kenwin Louise</span>
+            </h1>
+
+            <p class="text-lg sm:text-2xl font-medium text-slate-300 mb-4 max-w-2xl mx-auto">
+                Aspiring <span class="text-indigo-400 font-semibold">Front-End Developer</span> & 4th-Year IT Student
+            </p>
+
+            <p class="text-sm sm:text-base text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">
+                Crafting clean, user-centric, and responsive web experiences with modern frameworks. Based in Laurel, Batangas, studying at STI College Tanauan.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-xl shadow-indigo-600/25 flex items-center justify-center gap-3">
+                    <span>Explore My Work</span>
+                    <i class="fa-solid fa-code text-xs"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center gap-3">
+                    <span>Get in Touch</span>
+                    <i class="fa-regular fa-envelope text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Quick Metrics / Highlights Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-indigo-400 mb-1">4th Year</div>
+                    <div class="text-xs sm:text-sm text-slate-400">BS Student at STI Tanauan</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-purple-400 mb-1">21</div>
+                    <div class="text-xs sm:text-sm text-slate-400">Years Old</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-pink-400 mb-1">2+</div>
+                    <div class="text-xs sm:text-sm text-slate-400">Major Capstone Projects</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm text-center">
+                    <div class="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">100%</div>
+                    <div class="text-xs sm:text-sm text-slate-400">Passion for UI/UX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 bg-slate-900/40 border-t border-slate-800/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-semibold tracking-widest text-indigo-400 uppercase mb-3">Get to Know Me</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">About Me</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Profile / Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative p-6 rounded-3xl bg-slate-900 border border-slate-800 glow-effect">
+                        <div class="absolute -top-3 -right-3 px-4 py-1.5 rounded-full bg-indigo-600 text-white font-semibold text-xs shadow-md">
+                            BSIT / CS Student
+                        </div>
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-28 h-28 rounded-2xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 p-1 mb-6 shadow-xl">
+                                <div class="w-full h-full bg-slate-950 rounded-xl flex items-center justify-center text-3xl font-bold text-white">
+                                    KM
+                                </div>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-1">Kenwin Louise S. Malabanan</h4>
+                            <p class="text-indigo-400 font-medium text-sm mb-6">Aspiring Front-End Web Developer</p>
+                            
+                            <div class="w-full space-y-3 text-left border-t border-slate-800 pt-6">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400 flex items-center gap-2"><i class="fa-solid fa-cake-candles text-indigo-400 w-5"></i> Age:</span>
+                                    <span class="font-medium text-slate-200">21 Years Old</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-indigo-400 w-5"></i> Institution:</span>
+                                    <span class="font-medium text-slate-200 text-right">STI College Tanauan</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400 flex items-center gap-2"><i class="fa-solid fa-calendar-days text-indigo-400 w-5"></i> Year Level:</span>
+                                    <span class="font-medium text-slate-200">4th Year Student</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-400 flex items-center gap-2"><i class="fa-solid fa-location-dot text-indigo-400 w-5"></i> Address:</span>
+                                    <span class="font-medium text-slate-200 text-right">As-is, Laurel, Batangas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Description -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h4 class="text-2xl font-bold text-white">
+                        Building the future of web interfaces with passion & precision.
+                    </h4>
+                    <p class="text-slate-300 leading-relaxed">
+                        Hello! I'm Kenwin Louise, a dedicated 4th-year student currently studying at <strong class="text-indigo-400 font-semibold">STI College Tanauan</strong>. Hailing from the scenic town of As-is, Laurel, Batangas, I have cultivated a profound passion for technology, design, and software engineering.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        My primary focus lies in <strong class="text-indigo-400 font-semibold">Front-End Development</strong>. I bridge the gap between elegant UI/UX design and robust code. Whether it's building custom ordering workflows for local artisans or integrating hardware solutions like HF RFID systems for libraries, I enjoy solving practical problems through software.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed">
+                        As I approach graduation, I am actively seeking opportunities to kickstart my professional career, collaborate with experienced dev teams, and contribute to impactful digital products.
+                    </p>
+
+                    <!-- Personal Attributes / Badges -->
+                    <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                            <span class="text-xs font-medium text-slate-200">Fast Learner</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-people-group text-indigo-400"></i>
+                            <span class="text-xs font-medium text-slate-200">Team Player</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
+                            <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i>
+                            <span class="text-xs font-medium text-slate-200">Detail Oriented</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-semibold tracking-widest text-indigo-400 uppercase mb-3">Portfolio Showcase</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects</h3>
+                <p class="text-slate-400 mt-2 max-w-xl mx-auto">Highlighted capstone and system development works demonstrating full-stack and front-end expertise.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: EMJ Woodcraft -->
+                <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden glow-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="p-3 rounded-2xl bg-indigo-500/10 text-indigo-400 text-xl">
+                                <i class="fa-solid fa-couch"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-semibold">
+                                E-Commerce & Workflow
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">EMJ Woodcraft Custom Furniture System</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            A comprehensive web-based platform tailored for custom furniture ordering and workshop workflow management. Streamlines client custom specifications and order progress tracking.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">HTML5 / CSS3</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">JavaScript</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">Tailwind CSS</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-950/60 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400"><i class="fa-regular fa-folder-open mr-1"></i> Capstone Project</span>
+                        <button onclick="openProjectModal('EMJ Woodcraft System', 'A dedicated system designed to digitize custom furniture manufacturing workflows. It features customer specification forms, dynamic pricing estimation, and order milestone tracking.')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition">
+                            <span>View Details</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: KOPII Digital Coffee Shop -->
+                <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden glow-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="p-3 rounded-2xl bg-amber-500/10 text-amber-400 text-xl">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs font-semibold">
+                                Web Ordering UI
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">KOPII – Digital Coffee Shop System</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            A localized web-based ordering platform featuring Philippine Peso pricing, structured product categorization, and smooth user checkout experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">HTML5 / CSS3</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">JavaScript</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-950/60 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400"><i class="fa-regular fa-folder-open mr-1"></i> Web Application</span>
+                        <button onclick="openProjectModal('KOPII Digital Coffee Shop', 'A localized digital ordering system crafted for coffee enthusiasts. Features dynamic product filtering, cart management, and seamless checkout workflows with responsive styling.')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition">
+                            <span>View Details</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Library Management System with HF RFID -->
+                <div class="rounded-3xl bg-slate-900 border border-slate-800 overflow-hidden glow-card transition-all duration-300 flex flex-col justify-between">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="p-3 rounded-2xl bg-purple-500/10 text-purple-400 text-xl">
+                                <i class="fa-solid fa-book-bookmark"></i>
+                            </span>
+                            <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs font-semibold">
+                                IoT & Automation
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Library Management System with HF RFID</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            An advanced library automation platform integrated with High-Frequency (HF) RFID technology for streamlined book borrowing and inventory auditing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">RFID Integration</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">Front-End Dashboard</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium">Database Sync</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 bg-slate-950/60 border-t border-slate-800/80 flex items-center justify-between">
+                        <span class="text-xs text-slate-400"><i class="fa-regular fa-folder-open mr-1"></i> Smart Campus Solution</span>
+                        <button onclick="openProjectModal('Library Management System with HF RFID', 'An innovative school library solution leveraging High-Frequency (HF) RFID readers to reduce book checkout queues and eliminate manual inventory discrepancies.')" class="text-xs font-semibold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition">
+                            <span>View Details</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-900/40 border-t border-slate-800/60">
+        <!-- ... skills content ... -->
+    </section>
+
+    <!-- Interactive Resume Section -->
+    <section id="resume" class="py-24 bg-slate-900/60 border-t border-slate-800/60">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-semibold tracking-widest text-indigo-400 uppercase mb-3">Professional Profile</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Interactive Resume</h3>
+                <p class="text-slate-400 mt-2 max-w-xl mx-auto">A comprehensive overview of my education, technical capabilities, and project experience.</p>
+            </div>
+
+            <!-- Resume Card Container -->
+            <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-6 hidden sm:flex gap-3">
+                    <button onclick="copyResumeText()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition flex items-center gap-2">
+                        <i class="fa-regular fa-copy text-indigo-400"></i> Copy Resume
+                    </button>
+                    <a href="#contact" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-medium text-white transition flex items-center gap-2">
+                        <i class="fa-regular fa-envelope"></i> Hire Me
+                    </a>
+                </div>
+
+                <!-- Header Info -->
+                <div class="border-b border-slate-800 pb-8 mb-8">
+                    <h4 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">KENWIN LOUISE S. MALABANAN</h4>
+                    <p class="text-indigo-400 font-medium text-sm sm:text-base mb-4">Aspiring Front-End Developer | 4th Year BSIT Student</p>
+                    <div class="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-400">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-indigo-400"></i> As-is, Laurel, Batangas</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-indigo-400"></i> STI College Tanauan</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-envelope text-indigo-400"></i> kenwinlouise@email.com</span>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="mb-8">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Professional Summary</h5>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Driven and detail-oriented 4th-Year Information Technology Student at STI College Tanauan with a strong foundation in web design, UI/UX principles, and front-end development. Passionate about building clean, responsive, and user-centric web applications. Hands-on experience developing full-stack academic capstone systems featuring dynamic interfaces and robust workflows.
+                    </p>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="mb-8">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Technical Skills</h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-semibold text-white block mb-1">Front-End Development:</span>
+                            <span class="text-slate-300 text-xs">HTML5, CSS3, JavaScript (ES6+), Tailwind CSS, Responsive Web Design</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-semibold text-white block mb-1">Back-End & Databases:</span>
+                            <span class="text-slate-300 text-xs">PHP, MySQL, phpMyAdmin, XAMPP Environment</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-semibold text-white block mb-1">Tools & Version Control:</span>
+                            <span class="text-slate-300 text-xs">Visual Studio Code, Git, GitHub, UI/UX Prototyping</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-semibold text-white block mb-1">Core Competencies:</span>
+                            <span class="text-slate-300 text-xs">Component Architecture, Cross-Browser Compatibility, Debugging</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="mb-8">
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Education</h5>
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-1">
+                            <span class="font-bold text-white text-sm">Bachelor of Science in Information Technology</span>
+                            <span class="text-indigo-400 text-xs font-medium">Expected Graduation: 2027</span>
+                        </div>
+                        <p class="text-slate-300 text-xs mb-2">STI College Tanauan — Tanauan City, Batangas (4th Year)</p>
+                        <p class="text-slate-400 text-xs">Relevant Coursework: Advanced Web Development, Human-Computer Interaction, Information Management, Systems Analysis & Design.</p>
+                    </div>
+                </div>
+
+                <!-- Projects in Resume -->
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Key Academic Projects</h5>
+                    <div class="space-y-3">
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-bold text-white text-sm block mb-1">EMJ Woodcraft Custom Furniture System (Capstone)</span>
+                            <p class="text-slate-300 text-xs leading-relaxed">Engineered responsive front-end interfaces with dynamic cost computation tables and 8-stage workshop production workflows.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+                            <span class="font-bold text-white text-sm block mb-1">KOPII Digital Coffee Shop System</span>
+                            <p class="text-slate-300 text-xs leading-relaxed">Built a localized web-based ordering platform featuring Philippine Peso pricing, product categorization, and seamless cart management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cover Letter Section -->
+    <section id="cover-letter" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-semibold tracking-widest text-indigo-400 uppercase mb-3">Application Document</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Professional Cover Letter</h3>
+                <p class="text-slate-400 mt-2 max-w-xl mx-auto">Tailored cover letter demonstrating my career objectives and alignment with front-end developer roles.</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-12 shadow-2xl relative">
+                <div class="absolute top-0 right-0 p-6 hidden sm:block">
+                    <button onclick="copyCoverLetter()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 border border-slate-700 transition flex items-center gap-2">
+                        <i class="fa-regular fa-copy text-indigo-400"></i> Copy Letter
+                    </button>
+                </div>
+
+                <div class="space-y-6 text-slate-300 text-sm leading-relaxed">
+                    <div class="border-b border-slate-800 pb-6">
+                        <p class="font-semibold text-white">Kenwin Louise S. Malabanan</p>
+                        <p class="text-xs text-slate-400">As-is, Laurel, Batangas</p>
+                        <p class="text-xs text-slate-400">+63 993 089 8863 | malabanankenwin6@email.com</p>
+                        <p class="text-xs text-slate-400 mt-3">November 12, 2026</p>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-white">Hiring Manager</p>
+                        <p class="text-xs text-slate-400">Tech & Development Team</p>
+                        <p class="text-xs text-slate-400">[Company Name]</p>
+                    </div>
+
+                    <p class="font-semibold text-white">Subject: Application for Front-End Developer / Internship Position</p>
+
+                    <p>Dear Hiring Manager,</p>
+
+                    <p>
+                        As a dedicated 4th-year Information Technology student at STI College Tanauan based in Laurel, Batangas, I am writing to express my enthusiastic interest in joining your team as a Front-End Developer. With a strong academic foundation in software systems and a deep passion for crafting clean, responsive, and engaging user interfaces, I am eager to apply my skills to real-world digital products.
+                    </p>
+
+                    <p>
+                        Throughout my academic journey, I have focused heavily on bridging design and functionality. For my senior capstone project, I spearheaded the front-end development of a customizable furniture ordering and production workflow system for <strong>EMJ Woodcraft</strong>. This involved designing dynamic user interfaces, implementing responsive layouts, and translating complex business requirements into intuitive digital experiences. Furthermore, projects like <strong>KOPII Digital Coffee Shop</strong> and our HF RFID-integrated library management system have honed my ability to build user-friendly dashboards and seamless workflows.
+                    </p>
+
+                    <p>
+                        My technical toolkit includes proficiency in <strong>HTML5, CSS3, JavaScript, and responsive web design frameworks</strong>, paired with hands-on experience using modern development tools like Visual Studio Code and Git. Beyond technical execution, I pride myself on being a collaborative team player, a quick learner, and someone who genuinely cares about the micro-interactions that make a website memorable and accessible.
+                    </p>
+
+                    <p>
+                        I would welcome the opportunity to discuss how my academic background, technical projects, and enthusiasm for front-end development can bring value to your organization. Thank you for your time and consideration.
+                    </p>
+
+                    <div class="pt-4">
+                        <p>Sincerely,</p>
+                        <p class="font-bold text-white mt-2">Kenwin Louise S. Malabanan</p>
+                        <p class="text-xs text-slate-400">Aspiring Front-End Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <!-- ... contact content ... -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800/80 text-center">
+        <!-- ... footer content ... -->
+    </footer>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <!-- ... modal content ... -->
+    </div>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Set dynamic year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal functions
+        function openProjectModal(title, description) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').textContent = description;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // Handle Form Submission without alert()
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            openProjectModal('Message Sent Successfully!', 'Thank you for reaching out! Kenwin Louise will review your message and get back to you soon.');
+            document.getElementById('contact-form').reset();
+        }
+
+        // Copy Resume
+        function copyResumeText() {
+            const text = "KENWIN LOUISE S. MALABANAN\nAs-is, Laurel, Batangas\nSTI College Tanauan - 4th Year BSIT\nAspiring Front-End Developer\nSkills: HTML5, CSS3, JavaScript, Tailwind, Git\nProjects: EMJ Woodcraft, KOPII Digital Coffee Shop, Library RFID System";
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            openProjectModal('Resume Copied!', 'Resume text summary has been successfully copied to your clipboard.');
+        }
+
+        // Copy Cover Letter
+        function copyCoverLetter() {
+            const text = "Dear Hiring Manager,\nAs a dedicated 4th-year IT student at STI College Tanauan based in Laurel, Batangas, I am writing to apply for the Front-End Developer position...\nSincerely,\nKenwin Louise S. Malabanan";
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            openProjectModal('Cover Letter Copied!', 'Cover letter text has been successfully copied to your clipboard.');
+        }
+    </script>
+</body>
+</html>
